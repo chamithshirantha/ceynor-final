@@ -79,7 +79,7 @@
                           </div>
 
 
-                        <div class="y-dest_list_single row"> 
+                        {{-- <div class="y-dest_list_single row"> 
                           <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
                             <a href="#"><img src="assets/images/FootPeddle.jpg" class="img-fluid" alt=""></a>
                           </div>
@@ -100,7 +100,7 @@
                           </div> 
                         </div>
 
-                        <div class="y-dest_list ">
+                        
                           <div class="y-dest_list_single row">
                             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
                               <a href="#"><img src="assets/images/ecoboat.jpg" class="img-fluid" alt=""></a>
@@ -122,7 +122,97 @@
                                   
                                 </a>
                             </div> 
+                          </div> --}}
+
+
+                          @php
+                          $table_data= App\Models\Project::all();
+      
+                          
+      
+                          @endphp
+
+                          @php
+                          $counter = 0;
+                          @endphp
+
+
+
+                        @foreach ($table_data as $row)
+                        @if ($counter % 2 == 0)
+
+                          <div class="y-dest_list_single row"> 
+                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
+                              <a href="#"><img src="uploads/projects/{{ $row->image }}" class="img-fluid" alt=""></a>
+                            </div>
+                            <div class="col-sm-7 col-xs-12 pull-right wow fadeInRight" data-wow-duration="1s">
+                                <div class="thm-h">
+                                  <h3>{{ $row->project_name }}</h3> 
+                                  <h4>Start : {{ $row->start }} &nbsp;&nbsp; End : {{ $row->end }} &nbsp;&nbsp; Status : {{ $row->status }} </h4> 
+                                  <h4>Location : {{ $row->location }}</h4>
+                                </div>
+                                <ul>
+                                  <li>ICey – Nor foundation has Produced 700 units of the foot peddle fiberglass hand wash basin units and distributed all the
+                                    primary & secondary schools in Jaffna District. This project is offered by the Provincial Department of education, Northern
+                                    Province, Nallur as a UNICEF-funded project during the pandemic period in 2020.</li>
+                                  
+                                  
+                                </ul>
+                                
+                            </div> 
                           </div>
+                          @endif
+
+                          @if ($counter % 2 == 1)
+                          
+                            <div class="y-dest_list_single row">
+                              <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
+                                <a href="#"><img src="uploads/projects/{{ $row->image }}" class="img-fluid" alt=""></a>
+                              </div>
+                              <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
+                                <div class="thm-h">
+                                  <h3>Eco-Friendly Boat With Solar</h3> 
+                                  <h4>Start : 0 &nbsp;&nbsp; End : 0 &nbsp;&nbsp; Status : Completed </h4>
+                                  <h4>Location : </h4>
+                                 </div> 
+                                  <ul>
+                                    <li>With the objective of modernization of the manufacturing process at Cey-Nor through the introduction of eco-friendly
+                                      technologies to the boats, we have successfully completed the 13ft solar boat Pilate project in 2020. This boat exist with
+                                      solar panel with a capacity of 1.5kw which perform an average speed of 10-15 km/h in 4-6 hrs (day time) and 2-3 hrs (night
+                                      times).</li>
+                                    
+                                  </ul>
+                                 
+                                    
+                                  </a>
+                              </div> 
+                            </div>
+
+                            @endif
+
+                            @php
+                            $counter++;
+                        @endphp
+
+                    @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <div class="y-dest_list_single row"> 
                           <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">

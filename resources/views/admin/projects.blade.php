@@ -71,7 +71,7 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="body" name="description" rows="4"></textarea>
+                    <textarea class="form-control" id="body" name="description" rows="5"></textarea>
                 </div>
                   
             </div>
@@ -152,7 +152,14 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" name="p_e_description" id="p_e_description" rows="4"></textarea>
+                    <textarea class="form-control" name="p_e_description" id="p_e_description"  rows="4">
+                    </textarea>
+                </div>
+
+                <div class="col-lg-6 collapse" >
+                    <div class="job-summ-panel" id="job-summ-panel" >
+                       
+                    </div>
                 </div>
                   
             </div>
@@ -230,7 +237,7 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" name="p_v_description"  rows="4" disabled></textarea>
+                    <textarea class="form-control" name="p_v_description" rows="5" disabled></textarea>
                 </div>
                   
             </div>
@@ -308,6 +315,18 @@
 
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( error => {
+			console.error( 'There was a problem initializing the editor.', error );
+		} );
+</script>
+
 <script>
    
     
@@ -323,6 +342,8 @@
         
         
       });
+
+      
 
 
         $(document).on('submit', '#ProjectAddForm', function (e) {
@@ -350,6 +371,7 @@
                         $('#ProjectAddForm').find('input').val('');
                         $('#ProjectAddModal').modal('hide');
                         $('#ProjectAddForm')[0].reset();
+                        
                         alert(response.message);
                         fetchData();
                        
@@ -395,7 +417,7 @@
                 type: "GET",
                 url: dltUrl,
                 success: function (response) {
-                    console.log(response);
+                    // console.log(response);
                     if (response.status == 404) {
                         // alert(response.message)
                         $('#ProjectAddModal').modal('hide');
@@ -407,8 +429,10 @@
                         $('#p_e_status').val(response.project.status);
                         $('#p_e_location').val(response.project.location);
                         $('#p_e_shortdescription').val(response.project.short_description);
-                        $('#p_e_description').val(response.project.description);
+                        // $("textarea[name='p_e_description']").val(response.project.description);
+                        // $('#p_e_description').val(response.project.description);
                         $('#p_e_project_id').val(pro_id);
+
                     }
                         
                 }
@@ -418,39 +442,39 @@
 
         //view model
 
-        $(document).on('click', '.viewbtn-project', function (e) {
-            var pro_id = $(this).val();
-            var url = "{{URL('/edit-projects/')}}";
-            var dltUrl = url+"/"+pro_id;
-            $('#ProjectViewModal').modal('show');
-            // alert(emp_id);
-            $.ajax({
-                type: "GET",
-                url: dltUrl,
-                success: function (response) {
-                    console.log(response);
-                    if (response.status == 404) {
-                        alert(response.message)
-                        $('#ProjectViewForm').modal('hide');
-                    }else{
-                        console.log(response);
+        // $(document).on('click', '.viewbtn-project', function (e) {
+        //     var pro_id = $(this).val();
+        //     var url = "{{URL('/edit-projects/')}}";
+        //     var dltUrl = url+"/"+pro_id;
+        //     $('#ProjectViewModal').modal('show');
+        //     // alert(emp_id);
+        //     $.ajax({
+        //         type: "GET",
+        //         url: dltUrl,
+        //         success: function (response) {
+        //             console.log(response);
+        //             if (response.status == 404) {
+        //                 alert(response.message)
+        //                 $('#ProjectViewForm').modal('hide');
+        //             }else{
+        //                 console.log(response);
 
-                        $("input[name='p_v_projectname']").val(response.project.project_name);
-                        $("input[name='p_v_image']").siblings("img").attr("src", "../uploads/projects/"+response.project.image);
-                        $("input[name='p_v_startdate']").val(response.project.start);
-                        $("input[name='p_v_enddate']").val(response.project.end);
-                        $("input[name='p_v_status']").val(response.project.status);
-                        $("input[name='p_v_location']").val(response.project.location);                  
-                        $("textarea[name='p_v_shortdescription']").val(response.project.short_description);
-                        $("textarea[name='p_v_description']").val(response.project.description);
+        //                 $("input[name='p_v_projectname']").val(response.project.project_name);
+        //                 $("input[name='p_v_image']").siblings("img").attr("src", "../uploads/projects/"+response.project.image);
+        //                 $("input[name='p_v_startdate']").val(response.project.start);
+        //                 $("input[name='p_v_enddate']").val(response.project.end);
+        //                 $("input[name='p_v_status']").val(response.project.status);
+        //                 $("input[name='p_v_location']").val(response.project.location);                  
+        //                 $("textarea[name='p_v_shortdescription']").val(response.project.short_description);
+        //                 $("textarea[name='p_v_description']").val(response.project.description);
                         
 
-                    }
+        //             }
                         
-                }
-            });
+        //         }
+        //     });
 
-        });
+        // });
 
 
 
