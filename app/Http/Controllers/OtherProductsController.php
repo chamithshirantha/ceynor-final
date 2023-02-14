@@ -87,10 +87,7 @@ class OtherProductsController extends Controller
         $validator = Validator::make($request->all(),[
             'o_e_productname' => 'required',
             
-<<<<<<< HEAD
-            
-=======
->>>>>>> 87cf75955ebb9bb45cebe2b057b8456fc78f6f9c
+
         ]);
 
         if ($validator->fails()) {
@@ -169,11 +166,4 @@ class OtherProductsController extends Controller
             ]);
         }
     }
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 87cf75955ebb9bb45cebe2b057b8456fc78f6f9c
 }

@@ -5,18 +5,18 @@
     <title>CEY-NOR | FOUNDATION LIMITED &amp; </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/ceynorlogo.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="icon" type="image/png" href="{{ url('assets/images/ceynorlogo.png') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/animate.css') }}">
     <!-- CSS:: RESPONSIVE TABS --> 
-    <link rel='stylesheet' href="{{ asset('assets/css/tabs.css') }}" type='text/css'> 
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
-    <link href="{{ asset('assets/css/magicscroll.css" rel="stylesheet') }}" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel='stylesheet' href="{{ url('assets/css/tabs.css') }}" type='text/css'> 
+    <link rel="stylesheet" href="{{ url('assets/css/owl.carousel.min.css') }}">
+    <link href="{{ url('assets/css/magicscroll.css" rel="stylesheet') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
  </head>
 
 <body>
@@ -66,41 +66,32 @@
                           <div id="collapseOne" class="collapse show" >
                             <div class="card-body">
                               <div class="tender">
-                                <h4>Tenders 1</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
+
+                                @php
+                                $data= App\Models\TendersandVacancies::all();
+                                @endphp
+
+
+
+                                @foreach ($data as $item)
+                                @if ($item->type == 'tenders')
+                                <h4>{{ $item->topic }}</h4>
+                                <p>{{ $item->description_1 }}</p>
+                                <ul>
+                                  <li>{{ $item->description_2 }}</li>
+                                  <li>{{ $item->description_3 }}</li>
+                                </ul>
+                                <a href="uploads/tenders-vacancies/{{ $item->file }}" target="_blank">Attachment</a>
+                                <br>
+                                @endif
+                                
+                                @endforeach
+                                
+                                
                               </div>
                               <hr>
 
-                              <div class="tender">
-                                <h4>Tenders 2</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
-                              </div>
-                              <hr>
                               
-                              
-                              <div class="tender">
-                                <h4>Tenders 3</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
-                              </div>
-                              <hr>
-                              
-                              <div class="tender">
-                                <h4>Tenders 4</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
-                              </div>
-                              <hr>
-                              
-                              
-                              <div class="tender">
-                                <h4>Tenders 5</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
-                              </div>
-                              <hr>
-
-                              <div class="tender">
-                                <h4>Tenders 6</h4>
-                                <p>The picturesque bay where Kremik Marina is located is surrounded by 100 year old vineyards which produce the famous Babić wine. <br>Kremik Marina is well protected as its set into the land. The Kornati National Park is only 30 nautical miles away</p><br>
-                              </div>
                              
                               
                             </div>
@@ -116,32 +107,23 @@
                           <div id="collapseTwo" class="collapse show" >
                             <div class="card-body">
                               
-                                <div class="vacancies">
-                                <h4>Job 1</h4>
-                                <p>Croatia’s climate is ideal for a bareboat sailing holiday from Kremik. With blue skies, consistent warm weather and perfect sailing conditions, Croatia has long been a popular family-friendly bareboat charter destination.</p>
-                                </div>
-                                <hr>
+                              @foreach ($data as $item)
+                              @if ($item->type == 'vacancies')
+                              <h4>{{ $item->topic }}</h4>
+                              <p>{{ $item->description_1 }}</p>
+                                <ul>
+                                  <li>{{ $item->description_2 }}</li>
+                                  <li>{{ $item->description_3 }}</li>
+                                </ul>
+                                <a href="uploads/tenders-vacancies/{{ $item->file }}" target="_blank">Attachment</a>
+                                <br>
+                              @endif
+                                
+                              @endforeach
 
-                                <div class="vacancies">
-                                <h4>Job 2</h4>
-                                <p>Croatia’s climate is ideal for a bareboat sailing holiday from Kremik. With blue skies, consistent warm weather and perfect sailing conditions, Croatia has long been a popular family-friendly bareboat charter destination.</p>
-                                </div>
-
-                                <hr>
-
-                                <div class="vacancies">
-                                <h4>Job 3</h4>
-                                <p>Croatia’s climate is ideal for a bareboat sailing holiday from Kremik. With blue skies, consistent warm weather and perfect sailing conditions, Croatia has long been a popular family-friendly bareboat charter destination.</p>
-                                </div>
-
-                                <hr>
-
-                                <div class="vacancies">
-                                  <h4>Job 3</h4>
-                                  <p>Croatia’s climate is ideal for a bareboat sailing holiday from Kremik. With blue skies, consistent warm weather and perfect sailing conditions, Croatia has long been a popular family-friendly bareboat charter destination.</p>
-                                  </div>
-                  
+                              <hr>
                             </div>
+                            
                           </div>
                         </div>
                   
@@ -157,6 +139,7 @@
         
   
 
+    
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

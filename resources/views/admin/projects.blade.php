@@ -371,6 +371,8 @@
                         $('#ProjectAddForm').find('input').val('');
                         $('#ProjectAddModal').modal('hide');
                         $('#ProjectAddForm')[0].reset();
+                        $("textarea[name='description']").val('');
+                        
                         
                         alert(response.message);
                         fetchData();
@@ -431,6 +433,7 @@
                         $('#p_e_shortdescription').val(response.project.short_description);
                         // $("textarea[name='p_e_description']").val(response.project.description);
                         // $('#p_e_description').val(response.project.description);
+                       
                         $('#p_e_project_id').val(pro_id);
 
                     }

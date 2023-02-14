@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('tendersand_vacancies', function (Blueprint $table) {
             $table->id();
             $table->string('topic')->nullable();
+            $table->string('type')->nullable();
             $table->string('file')->nullable();
             $table->longText('description_1')->nullable();
             $table->longText('description_2')->nullable();

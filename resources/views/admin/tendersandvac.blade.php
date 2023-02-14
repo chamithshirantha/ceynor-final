@@ -28,9 +28,17 @@
                 <form id="TenderAddForm" class="row g-3" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <label class="form-label">Title</label>
                     <input type="text" name="tendertitle" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                <select class="form-select" name="type" aria-label="Default select example">
+                    <option value="tenders">Tenders</option>
+                    <option value="vacancies">Vacancies</option>
+                    
+                </select>
                 </div>
 
                 <div class="col-md-4">
@@ -79,7 +87,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">News & Feeds Update</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Tenders / Vacancies</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -140,7 +148,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">View News & Feeds Details</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Tenders / Vacancies</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -153,12 +161,25 @@
 
                 <input type="hidden" id="v_t_id" name="v_t_id" disabled>
 
-                <div class="col-md-12">
-                    <label class="form-label">Topic</label>
-                    <input type="text" name="v_t_newstopic" id="v_t_newstopic" class="form-control" disabled>
+                <div class="row">
+                    <div class="col">
+                        <div class="col-md-12">
+                            <label class="form-label">Topic</label>
+                            <input type="text" name="v_t_newstopic" id="v_t_newstopic" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="col-md-12">
+                            <label class="form-label">Type</label>
+                            <input type="text" name="v_t_type" id="v_t_type" class="form-control" disabled>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-md-4">
+                
+
+                <div class="col-md-12">
                     <label for="attachment" class="form-label">Attachment</label>
                     <input type="hidden" name="v_t_file" disabled>
                 
@@ -213,6 +234,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Topic</th>
+                                                <th>Type</th>
                                                 <th>Image</th>
                                                 <th colspan="3">Action</th>
                                             </tr>
@@ -302,6 +324,7 @@
                     $.each(response.tenders_vacancies, function (key, item) { 
                         $('tbody').append('' 
                         +'<tr><td> '+ item.topic +' </td>' +
+                        '<td> '+ item.type +' </td>'+
                         '<td>'+'<img src=../uploads/tenders-vacancies/pdf.png height="60px"></td>'+
                         '<td>'+ '<button type="button" value="' + item.id + '" class="btn btn-success viewbtn-tenders-vacancies btn-circle"><i class="fa fa-eye"></i></button>' +' </td>'+
                         '<td>'+ '<button type="button" value="' + item.id + '" class="btn btn-warning editbtn-tenders-vacancies btn-circle"><i class="fas fa-edit"></i></button>' +' </td>'+
@@ -362,6 +385,7 @@
                         console.log(response);
 
                         $("input[name='v_t_newstopic']").val(response.tenders_vacancies.topic);
+                        $("input[name='v_t_type']").val(response.tenders_vacancies.type);
                         $("input[name='v_t_file']").siblings("iframe").attr("src", "../uploads/tenders-vacancies/"+response.tenders_vacancies.file);
                         $("textarea[name='v_t_description_1']").val(response.tenders_vacancies.description_1);
                         $("textarea[name='v_t_description_2']").val(response.tenders_vacancies.description_2);

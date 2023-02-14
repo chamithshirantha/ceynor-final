@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                     <label for="image" class="form-label">Choose Image</label>
                     <input class="form-control" type="file" name="image">
-                    <small class="form-text text-muted">Please choose image size</small>
+                    <small class="form-text text-muted">Please choose image size : 676 x 512</small>
                   </div>
 
 
@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                     <label for="image" class="form-label">Choose Image</label>
                     <input class="form-control" type="file" name="e_n_image" id="e_n_image">
-                    <small class="form-text text-muted">Please choose image size</small>
+                    <small class="form-text text-muted">Please choose image size : 676 x 512</small>
                   </div>
 
 

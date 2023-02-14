@@ -10,6 +10,7 @@ class TendersandVacancies extends Model
     protected $table = 'tendersand_vacancies';
     protected $fillable = [
         'topic',
+        'type',
         'file',
         'description_1',
         'description_2',

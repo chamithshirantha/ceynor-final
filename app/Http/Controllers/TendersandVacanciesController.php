@@ -29,6 +29,7 @@ class TendersandVacanciesController extends Controller
 
             $tenders_vacancies = new TendersandVacancies;
             $tenders_vacancies->topic = $request->input('tendertitle');
+            $tenders_vacancies->type = $request->input('type');
             $tenders_vacancies->description_1 = $request->input('description_1');
             $tenders_vacancies->description_2 = $request->input('description_2');
             $tenders_vacancies->description_3 = $request->input('description_3');

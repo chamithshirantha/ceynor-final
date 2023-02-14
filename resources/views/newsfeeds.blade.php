@@ -5,16 +5,16 @@
       <title>CEY-NOR | FOUNDATION LIMITED &amp; </title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="icon" type="image/png" href="{{ asset('assets/images/ceynorlogo.png') }}">
-      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <link rel="icon" type="image/png" href="{{ url('assets/images/ceynorlogo.png') }}">
+      <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
       <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/themify-icons.css">
-      <link rel="stylesheet" href="assets/css/all.min.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-      <link href="assets/css/magicscroll.css" rel="stylesheet" type="text/css" media="screen"/>
-      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="{{ url('assets/css/themify-icons.css') }}">
+      <link rel="stylesheet" href="{{ url('assets/css/all.min.css') }}">
+      <link rel="stylesheet" href="{{ url('assets/css/animate.css') }}">
+      <link rel="stylesheet" href="{{ url('assets/css/owl.carousel.min.css') }}">
+      <link href="{{ url('assets/css/magicscroll.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+      <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
    </head>
 <body>
     <header>
@@ -44,209 +44,74 @@
                      
                       <div class="y-product_listing_side col-sm-12">
                         <div class="y-dest_list ">
+
+                          @php
+                          $table_data= App\Models\NewsandFeeds::all();
+
+                          
+
+                          @endphp
+
+                          
+                              @php
+                                  $counter = 0;
+                              @endphp
+
+
+                        @foreach ($table_data as $row)
+
+                        @if ($counter % 2 == 0)
+
                           <div class="y-dest_list_single row">
                             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_1.jpg" class="img-fluid" alt=""></a>
+                              <a href="#"><img src="uploads/news-feeds/{{ $row->image }}" class="img-fluid" alt=""></a>
                             </div>
                             <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
                               <div class="thm-h">
-                                <h3><a href="#">croatia</a></h3> 
-                                <h4>Set in the beautiful adertic </h4>
+                                <h3>{{ $row->topic }}</h3> 
+                                <h4>{{ $row->description_1 }}</h4>
                                </div> 
                                 <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
+                                  
+                                  <li>{{ $row->description_2 }}</li>
+                                  <li>{{ $row->description_3 }}</li> 
                                 </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
+                                
                             </div> 
                           </div>
+                          @endif
+
+                          @if ($counter % 2 == 1)
                           <div class="y-dest_list_single row"> 
                             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_2.jpg" class="img-fluid" alt=""></a>
+                              <a href="#"><img src="uploads/news-feeds/{{ $row->image }}" class="img-fluid" alt=""></a>
                             </div>
                             <div class="col-sm-7 col-xs-12 pull-right wow fadeInRight" data-wow-duration="1s">
                                 <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4> 
+                                  <h3>{{ $row->topic }}</h3> 
+                                  <h4>{{ $row->description_1 }}</h4> 
                                 </div>
                                 <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
+                                  
+                                  <li>{{ $row->description_2 }}</li>
+                                  <li>{{ $row->description_3 }}</li> 
                                 </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
+                               
                             </div> 
                           </div>
-                          <div class="y-dest_list_single row">
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_3.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4>
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
-                          <div class="y-dest_list_single row"> 
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_4.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 col-xs-12 pull-right wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4> 
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
-                          <div class="y-dest_list_single row">
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_5.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4>
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
-                          <div class="y-dest_list_single row"> 
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_6.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 col-xs-12 pull-right wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4> 
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div> 
-                          <div class="y-dest_list_single row">
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_7.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4>
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
-                          <div class="y-dest_list_single row"> 
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_8.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 col-xs-12 pull-right wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4> 
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
-                          <div class="y-dest_list_single row">
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 pull-right wow fadeInLeft" data-wow-duration="1s">
-                              <a href="#"><img src="assets/images/destinations_9.jpg" class="img-fluid" alt=""></a>
-                            </div>
-                            <div class="col-sm-7 wow fadeInRight" data-wow-duration="1s">
-                                <div class="thm-h">
-                                  <h3><a href="#">croatia</a></h3> 
-                                  <h4>Set in the beautiful adertic </h4>
-                                </div>
-                                <ul>
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</li>
-                                  <li>tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim.</li>
-                                  <li>Lorem ipsum dolor sit amet, consectetur.</li> 
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</li>
-                                </ul>
-                                <a href="destination_single.html" class="read-more button-fancy -color-1 ">
-                                  <span class="btn-arrow"></span>
-                                  <span class="twp-read-more text">Continue Reading</span>
-                                </a>
-                            </div> 
-                          </div>
+                          @endif
+
+                          @php
+                          $counter++;
+                          @endphp
+
+
+                        @endforeach
+                        <br>
+
                         </div> 
                       </div> 
                     
-                    <div class="y-pagination row clearfix">
-                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                         <ul class="row y-pagination_num clearfix">
-                           <li><a href="#">1</a></li>
-                           <li><a href="#">2</a></li>
-                           <li><a href="#" class="y-active_page">3</a></li>
-                           <li><a href="#">4</a></li>
-                           <li><a href="#">5</a></li>
-                         </ul>
-                       </div>  
-                    </div>
                 </div>
             </div>
           </div>
@@ -258,15 +123,15 @@
 
     
 
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.mousewheel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/magicscroll.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/js/wow.min.js') }}" type="text/javascript"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ url('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url('assets/js/popper.min.js') }}"></script>
+    <script src="{{ url('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('assets/js/jquery.mousewheel.min.js') }}"></script>
+    <script src="{{ url('assets/js/magicscroll.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/js/wow.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ url('assets/js/main.js') }}"></script>
+    <script src="{{ url('assets/js/custom.js') }}"></script>
 
 </body>
 
