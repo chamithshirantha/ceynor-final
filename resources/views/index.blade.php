@@ -393,6 +393,7 @@
                   </div>
                </div>
             </section>
+
             <section id="h-charter" class="main-section h-charter-sec  ">
                <div class="container-fluid">
                   <div class="row m-0 ">
@@ -401,19 +402,25 @@
                      </div>
                      <div class="col-sm-12"  >
                         <div class="owl-carousel owl-carousel-3 center-carousel owl-theme">
+                           @php
+                           $data= App\Models\Project::all();
+                           @endphp
+
+                           @foreach ($data as $item)
+
                            <div class="item">
                               <a  href="{{ route('ourprojects') }}" target="_blank">
                                  <div class="main-tilt">
                                     <div>
-                                       <img class="main-back" src="assets/images/c-1.jpg" alt="">
+                                       <img class="main-back" src="uploads/projects/{{ $item->image }}" alt="">
                                     </div>
                                     <div   class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/c-1.jpg" alt="">
+                                       <img class="inner-img" src="uploads/projects/{{ $item->image }}" alt="">
                                        <div class="slide-cont">
                                           <div>
                                              <h3>Dikkowita Landing Site Construction Project
                                              </h3>
-                                             <p >Location :  Dikkowita - Sri Lanka</p>
+                                             <p >Location : &amp; Dikkowita - Sri Lanka</p>
                                              <span>View Project
                                              </span>
                                           </div>
@@ -422,108 +429,15 @@
                                  </div>
                               </a>
                            </div>
-                           <div class="item">
-                              <a  href="{{ route('ourprojects') }}" target="_blank">
-                                 <div class="main-tilt">
-                                    <div data-speed="0.2">
-                                       <img class="main-back" src="assets/images/c-2.jpg" alt="">
-                                    </div>
-                                    <div data-speed="0.5" class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/c-2.jpg" alt="">
-                                       <div class="slide-cont">
-                                          <div>
-                                             <h3>Design and Construction of Beruwala Maradhana Anchorage
-                                             </h3>
-                                             <p >Location :  Beruwala - Sri Lanka</p>
-                                             <span>View Project
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class="item">
-                              <a  href="{{ route('ourprojects') }}" target="_blank">
-                                 <div class="main-tilt">
-                                    <img class="main-back" src="assets/images/harbour.jpg" alt="">
-                                    <div class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/harbour.jpg" alt="">
-                                       <div class="slide-cont">
-                                          <div>
-                                             <h3>Dikovi Fishing Harbour
-                                             </h3>
-                                             <p >Location : Dikovi - Sri Lanka</p>
-                                             <span>View Project
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class="item">
-                              <a  href="{{ route('ourprojects') }}" target="_blank">
-                                 <div class="main-tilt">
-                                    <img class="main-back" src="assets/images/ourproject1.jpg" alt="">
-                                    <div class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/ourproject1.jpg" alt="">
-                                       <div class="slide-cont">
-                                          <div>
-                                             <h3>55ft Multiday Fishing Boat Project
-                                             </h3>
-                                             <p >Location :  Mauritius Nation</p>
-                                             <span>View Project
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class="item">
-                              <a  href="{{ route('ourprojects') }}" target="_blank">
-                                 <div class="main-tilt">
-                                    <img class="main-back" src="assets/images/ourproject2.jpg" alt="">
-                                    <div class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/ourproject2.jpg" alt="">
-                                       <div class="slide-cont">
-                                          <div>
-                                             <h3>59.5ft Multiday Fishing Boat Project
-                                             </h3>
-                                             <p ></p>
-                                             <span>View Project
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class="item">
-                              <a  href="{{ route('ourprojects') }}" target="_blank">
-                                 <div class="main-tilt">
-                                    <img class="main-back" src="assets/images/project3.jpg" alt="">
-                                    <div class="inner-tilt">
-                                       <img class="inner-img" src="assets/images/project3.jpg" alt="">
-                                       <div class="slide-cont">
-                                          <div>
-                                             <h3>Eco-Friendly Boat With Solar
-                                             </h3>
-                                             <p ></p>
-                                             <span>View Project
-                                             </span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
+                           @endforeach
+
+                           
+                           
                      </div>
                   </div>
                </div>
             </section>
+            
             <section class="main-section testimonial ">
                <div class="container-fluid">
                   <div class="thm-h text-center">

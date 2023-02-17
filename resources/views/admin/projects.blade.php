@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                   <label for="image" class="form-label">Choose Image</label>
                   <input class="form-control" type="file" name="image">
-                  <small class="form-text text-muted">Please choose image size</small>
+                  <small class="form-text text-muted">Please choose image size : 500 x 500</small>
                 </div>
 
                 <div class="col-md-6">
@@ -71,7 +71,7 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="body" name="description" rows="5"></textarea>
+                    <textarea class="form-control" name="description" rows="5"></textarea>
                 </div>
                   
             </div>
@@ -119,7 +119,7 @@
                 <div class="col-md-6">
                   <label for="image" class="form-label">Choose Image</label>
                   <input class="form-control" type="file" name="p_e_image" id="p_e_image">
-                  <small class="form-text text-muted">Please choose image size</small>
+                  <small class="form-text text-muted">Please choose image size : 500 x 500</small>
                 </div>
 
                 <div class="col-md-6">
@@ -371,7 +371,6 @@
                         $('#ProjectAddForm').find('input').val('');
                         $('#ProjectAddModal').modal('hide');
                         $('#ProjectAddForm')[0].reset();
-                        $("textarea[name='description']").val('');
                         
                         
                         alert(response.message);
@@ -432,7 +431,7 @@
                         $('#p_e_location').val(response.project.location);
                         $('#p_e_shortdescription').val(response.project.short_description);
                         // $("textarea[name='p_e_description']").val(response.project.description);
-                        // $('#p_e_description').val(response.project.description);
+                        $('#p_e_description').val(response.project.description);
                        
                         $('#p_e_project_id').val(pro_id);
 
